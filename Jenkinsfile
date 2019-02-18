@@ -30,7 +30,7 @@ pipeline {
         stage ('Maven Build'){
             steps {
                 rtMavenRun (
-                        pom: "${env.PROJECT_ROOT}/pom.xml",
+                        pom: "pom.xml",
                         goals: "clean install",
                         resolverId: "MAVEN_RESOLVER"
                 )
@@ -39,9 +39,6 @@ pipeline {
     }
     post {
         always {
-            //Collect test reports
-            junit '**/target/surefire-reports/*.xml,**/target/failsafe-reports/*.xml'
-
             deleteDir() /* clean up our workspace */
         }
         success {
