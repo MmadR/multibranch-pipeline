@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven@Jenkins1toc'
+        maven 'M3'
     }
 
     stages {
